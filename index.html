@@ -160,7 +160,24 @@
     .hero-inner {
       position: relative;
       z-index: 1;
-      max-width: 800px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      text-align: left;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      z-index: 5;
     }
 
     .hero-badge {
@@ -193,7 +210,7 @@
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(36px, 6vw, 68px);
+      font-size: clamp(36px, 5.5vw, 60px);
       font-weight: 900;
       line-height: 1.08;
       letter-spacing: -0.03em;
@@ -210,14 +227,107 @@
       color: var(--white-70);
       line-height: 1.7;
       max-width: 580px;
-      margin: 0 auto 40px;
+      margin: 0 0 40px;
     }
 
     .hero-actions {
       display: flex;
       gap: 14px;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
+    }
+
+    /* Premium Banner Mockup */
+    .hero-banner-wrap {
+      position: relative;
+      width: 100%;
+      perspective: 1000px;
+      z-index: 5;
+    }
+
+    .hero-banner-inner-wrap {
+      width: 100%;
+      animation: heroFloat 6s ease-in-out infinite;
+    }
+
+    .banner-mockup {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 
+        0 30px 70px rgba(0,0,0,0.6), 
+        0 0 50px rgba(14,165,160,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s;
+    }
+
+    .banner-mockup:hover {
+      transform: translateY(-6px) rotateX(2deg) rotateY(-2deg) scale(1.03);
+      box-shadow: 
+        0 40px 80px rgba(0,0,0,0.7), 
+        0 0 60px rgba(14,165,160,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+
+    .banner-window-bar {
+      height: 32px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 6px;
+    }
+
+    .window-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .window-dot.red { background: #ef4444; }
+    .window-dot.yellow { background: #f59e0b; }
+    .window-dot.green { background: #10b981; }
+
+    .banner-window-title {
+      font-size: 11px;
+      color: var(--white-45);
+      margin-left: auto;
+      margin-right: auto;
+      font-family: var(--font-body);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .banner-image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      display: block;
+    }
+
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+      }
+      .hero-text {
+        align-items: center;
+      }
+      .hero-layout .hero-sub {
+        margin: 0 auto 40px;
+      }
+      .hero-layout .hero-actions {
+        justify-content: center;
+      }
     }
 
     .btn-primary {
@@ -1081,6 +1191,21 @@
       .scan-line { animation: none; }
       .hero-badge-dot { animation: none; }
     }
+
+
+    .phone-screen {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+.phone-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
   </style>
 </head>
 <body>
@@ -1095,7 +1220,7 @@
     <li><a href="#fitur">Fitur</a></li>
     <li><a href="#update">Yang Baru</a></li>
     <li><a href="#panduan">Panduan</a></li>
-    <li><a href="#YOUR_DOWNLOAD_URL_HERE" class="nav-cta">⬇ Download</a></li>
+    <li><a href="apk/tanya-kasir-v1.6.apk" class="nav-cta">⬇ Download</a></li>
   </ul>
 </nav>
 
@@ -1107,50 +1232,48 @@
   <div class="hero-grid"></div>
 
   <div class="hero-inner">
-    <div class="hero-badge">
-      <div class="hero-badge-dot"></div>
-      Kasir Pintar untuk UMKM Indonesia
-    </div>
+    <div class="hero-layout">
+      
+      <div class="hero-text">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          Kasir Pintar untuk UMKM Indonesia
+        </div>
 
-    <h1>
-      Kelola Kasir Lebih<br/>
-      Mudah dengan<br/>
-      <span class="accent">AI Agent AIRIN</span>
-    </h1>
+        <h1>
+          Kelola Kasir Lebih<br/>
+          Mudah dengan<br/>
+          <span class="accent">AI Agent AIRIN</span>
+        </h1>
 
-    <p class="hero-sub">
-      Tanya Kasir hadir dengan panduan AI pintar, scanner produk multi-item, transaksi kilat, dan laporan lengkap — semua dalam genggaman Anda.
-    </p>
+        <p class="hero-sub">
+          Tanya Kasir hadir dengan panduan AI pintar, scanner produk multi-item, transaksi kilat, dan laporan lengkap — semua dalam genggaman Anda.
+        </p>
 
-    <div class="hero-actions">
-      <a href="#YOUR_DOWNLOAD_URL_HERE" class="btn-primary">
-        ⬇ Download Gratis
-      </a>
-      <a href="#panduan" class="btn-secondary">
-        📖 Lihat Panduan
-      </a>
-    </div>
-
-    <!-- Phone Mockups -->
-    <div class="hero-mockup">
-      <div class="phone-frame side">
-        <div class="phone-screen">
-          <div class="phone-placeholder-icon">📦</div>
-          <p class="phone-placeholder-label">Masukkan screenshot<br/>halaman produk di sini</p>
+        <div class="hero-actions">
+          <a href="apk/tanya-kasir-v1.6.apk" class="btn-primary">
+            ⬇ Download Gratis
+          </a>
+          <a href="#panduan" class="btn-secondary">
+            📖 Lihat Panduan
+          </a>
         </div>
       </div>
-      <div class="phone-frame center">
-        <div class="phone-screen">
-          <div class="phone-placeholder-icon">🏠</div>
-          <p class="phone-placeholder-label">Masukkan screenshot<br/>halaman utama / dashboard</p>
+
+      <div class="hero-banner-wrap">
+        <div class="hero-banner-inner-wrap">
+          <div class="banner-mockup">
+            <div class="banner-window-bar">
+              <div class="window-dot red"></div>
+              <div class="window-dot yellow"></div>
+              <div class="window-dot green"></div>
+              <div class="banner-window-title">tanyakasir.com - Dashboard</div>
+            </div>
+            <img src="img/banner.png" alt="Tanya Kasir Banner" class="banner-image">
+          </div>
         </div>
       </div>
-      <div class="phone-frame side">
-        <div class="phone-screen">
-          <div class="phone-placeholder-icon">🧾</div>
-          <p class="phone-placeholder-label">Masukkan screenshot<br/>halaman transaksi</p>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1165,7 +1288,7 @@
       <div class="airin-avatar-card">
         <div class="airin-img-area">
           <div class="airin-img-placeholder">
-            ✨<br/>Masukkan ilustrasi<br/>karakter AIRIN di sini<br/>(PNG transparan)
+            <img src="img/kaget.png" alt="Avatar AIRIN" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">
           </div>
         </div>
         <div class="airin-name-tag">
@@ -1232,42 +1355,41 @@
       <div class="feat-new-badge">✦ Unggulan</div>
       <div class="feat-title">Dua Role Pengguna</div>
       <p class="feat-desc">Role <strong>Admin</strong> untuk kelola produk & laporan, dan role <strong>Kasir</strong> hanya untuk transaksi. Akses terkontrol, bisnis lebih aman.</p>
-      <div class="feat-img-placeholder">📸 Screenshot halaman manajemen user</div>
     </div>
 
     <div class="feat-card reveal reveal-delay-1">
       <div class="feat-icon-wrap">📦</div>
       <div class="feat-title">Kelola Produk Lengkap</div>
       <p class="feat-desc">Tambah produk baru, atur stok, dan kelola harga jual eceran & grosir dalam satu tampilan yang rapi dan intuitif.</p>
-      <div class="feat-img-placeholder">📸 Screenshot halaman daftar produk</div>
+      <!-- <div class="feat-img-placeholder"><img src="img/produk.png" alt="Screenshot Daftar Produk" class="phone-image"></div> -->
     </div>
 
     <div class="feat-card reveal reveal-delay-2">
       <div class="feat-icon-wrap">💰</div>
       <div class="feat-title">Harga Bertingkat</div>
       <p class="feat-desc">Dukung harga <strong>eceran</strong> dan <strong>grosir</strong> per produk. Harga otomatis menyesuaikan tipe pelanggan saat transaksi.</p>
-      <div class="feat-img-placeholder">📸 Screenshot form harga produk</div>
+      <!-- <div class="feat-img-placeholder"><img src="img/harga.png" alt="Screenshot Form Harga Produk" class="phone-image"></div> -->
     </div>
 
     <div class="feat-card reveal">
       <div class="feat-icon-wrap">🖨️</div>
       <div class="feat-title">Cetak Struk Thermal</div>
       <p class="feat-desc">Koneksi langsung ke printer thermal via Bluetooth atau USB. Struk tercetak otomatis setiap transaksi selesai.</p>
-      <div class="feat-img-placeholder">📸 Screenshot preview struk / cetak</div>
+      <!-- <div class="feat-img-placeholder"><img src="img/struk.png" alt="Screenshot Preview Struk" class="phone-image"></div> -->
     </div>
 
     <div class="feat-card reveal reveal-delay-1">
       <div class="feat-icon-wrap">📈</div>
       <div class="feat-title">Laporan Penjualan</div>
       <p class="feat-desc">Laporan harian dan bulanan otomatis. Lihat produk terlaris, total omzet, dan riwayat transaksi kapan saja.</p>
-      <div class="feat-img-placeholder">📸 Screenshot halaman laporan</div>
+      <!-- <div class="feat-img-placeholder"><img src="img/laporan.png" alt="Screenshot Halaman Laporan" class="phone-image"></div> -->
     </div>
 
     <div class="feat-card reveal reveal-delay-2">
       <div class="feat-icon-wrap">🔒</div>
       <div class="feat-title">Kunci Perangkat</div>
       <p class="feat-desc">Sistem device lock memastikan aplikasi hanya bisa dipakai di perangkat yang sudah didaftarkan. Lindungi data bisnis Anda.</p>
-      <div class="feat-img-placeholder">📸 Screenshot layar kunci / aktivasi</div>
+      <!-- <div class="feat-img-placeholder"><img src="img/kunci.png" alt="Screenshot Layar Kunci / Aktivasi" class="phone-image"></div> -->
     </div>
 
   </div>
@@ -1366,7 +1488,7 @@
       <div class="guide-icon">⬇</div>
       <div class="guide-title">Download & Instal</div>
       <p class="guide-desc">Download file APK, izinkan instalasi dari sumber tidak dikenal, lalu instal di perangkat Android Anda.</p>
-      <div class="guide-img-placeholder">📸 Screenshot layar instalasi</div>
+      <!-- <div class="guide-img-placeholder">📸 Screenshot layar instalasi</div> -->
     </div>
 
     <div class="guide-card reveal reveal-delay-1">
@@ -1374,7 +1496,7 @@
       <div class="guide-icon">🔐</div>
       <div class="guide-title">Daftar & Aktivasi</div>
       <p class="guide-desc">Buat akun Admin, aktivasi perangkat, dan atur profil toko Anda. AIRIN akan membimbing langkah demi langkah.</p>
-      <div class="guide-img-placeholder">📸 Screenshot halaman daftar / login</div>
+      <!-- <div class="guide-img-placeholder">📸 Screenshot halaman daftar / login</div> -->  
     </div>
 
     <div class="guide-card reveal reveal-delay-2">
@@ -1382,7 +1504,7 @@
       <div class="guide-icon">📦</div>
       <div class="guide-title">Input Produk</div>
       <p class="guide-desc">Tambahkan produk satu per satu atau gunakan scanner barcode untuk input massal. Atur harga eceran dan grosir sekaligus.</p>
-      <div class="guide-img-placeholder">📸 Screenshot form tambah produk</div>
+      <!-- <div class="guide-img-placeholder">📸 Screenshot form tambah produk</div> -->
     </div>
 
     <div class="guide-card reveal reveal-delay-3">
@@ -1390,7 +1512,7 @@
       <div class="guide-icon">🛒</div>
       <div class="guide-title">Mulai Transaksi</div>
       <p class="guide-desc">Pilih produk atau scan barcode, masukkan jumlah, proses pembayaran, dan cetak struk — semua dalam hitungan detik.</p>
-      <div class="guide-img-placeholder">📸 Screenshot halaman transaksi</div>
+      <!-- <div class="guide-img-placeholder">📸 Screenshot halaman transaksi</div> -->
     </div>
 
     <div class="guide-card reveal">
@@ -1398,7 +1520,7 @@
       <div class="guide-icon">📊</div>
       <div class="guide-title">Pantau Laporan</div>
       <p class="guide-desc">Buka menu laporan untuk melihat total penjualan, produk terlaris, dan riwayat transaksi harian maupun bulanan.</p>
-      <div class="guide-img-placeholder">📸 Screenshot halaman laporan</div>
+      <!-- <div class="guide-img-placeholder">📸 Screenshot halaman laporan</div> -->
     </div>
 
     <div class="guide-card reveal reveal-delay-1" style="border-color:rgba(14,165,160,0.3);background:linear-gradient(145deg,rgba(14,165,160,0.08) 0%,var(--white-06) 100%);">
@@ -1406,7 +1528,7 @@
       <div class="guide-icon">✨</div>
       <div class="guide-title">Tanya AIRIN Kapan Saja</div>
       <p class="guide-desc">Bingung? Klik ikon AIRIN di pojok layar. AI agent kami siap menjawab pertanyaan dan memandu operasional kasir Anda 24/7.</p>
-      <div class="guide-img-placeholder">📸 Screenshot chat dengan AIRIN</div>
+      <!-- <div class="guide-img-placeholder">📸 Screenshot chat dengan AIRIN</div> -->
     </div>
 
   </div>
