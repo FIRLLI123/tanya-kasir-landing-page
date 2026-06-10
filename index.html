@@ -237,6 +237,35 @@
       flex-wrap: wrap;
     }
 
+    .hero-security-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(14, 165, 160, 0.08);
+      border: 1px solid rgba(14, 165, 160, 0.25);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-top: 30px;
+      max-width: 580px;
+      text-align: left;
+    }
+
+    .security-badge-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .hero-security-badge p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--white-70);
+      margin: 0;
+    }
+
+    .hero-security-badge p strong {
+      color: var(--primary-light);
+    }
+
     /* Premium Banner Mockup */
     .hero-banner-wrap {
       position: relative;
@@ -327,6 +356,12 @@
       }
       .hero-layout .hero-actions {
         justify-content: center;
+      }
+      .hero-security-badge {
+        margin: 24px auto 0;
+        text-align: center;
+        flex-direction: column;
+        gap: 8px;
       }
     }
 
@@ -1258,6 +1293,11 @@
             📖 Lihat Panduan
           </a>
         </div>
+
+        <div class="hero-security-badge">
+          <span class="security-badge-icon">🛡️</span>
+          <p><strong>Aman Terverifikasi:</strong> Peringatan browser saat mengunduh APK adalah standar keamanan Android. Aplikasi kami dijamin 100% bebas dari virus & malware.</p>
+        </div>
       </div>
 
       <div class="hero-banner-wrap">
@@ -1487,8 +1527,7 @@
       <div class="guide-num">01</div>
       <div class="guide-icon">⬇</div>
       <div class="guide-title">Download & Instal</div>
-      <p class="guide-desc">Download file APK, izinkan instalasi dari sumber tidak dikenal, lalu instal di perangkat Android Anda.</p>
-      <!-- <div class="guide-img-placeholder">📸 Screenshot layar instalasi</div> -->
+      <p class="guide-desc">Klik <strong>Download Gratis</strong>. Jika browser memunculkan peringatan *"File mungkin berbahaya"*, pilih <strong>Tetap Download</strong> untuk melanjutkan instalasi.</p>
     </div>
 
     <div class="guide-card reveal reveal-delay-1">
